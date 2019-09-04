@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoItem from './TodoItem';
+import AddTodo from './AddTodo';
 
-function App() {
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: []
+    }
+  }
+  deleteTodo = (index) => {
+    const todo = this.state.todos.splice(index, 1);
+    this.setState({todo});
+  }
+  addTodo = (input) =>{
+    this.state.todos.push({
+      value: input,
+      isCompleted: false
+    });
+    this.setState({
+      todos: this.state.todos
+    });
+  }
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+         <AddTodo addTodo={this.addTodo}></AddTodo>
+         {this.state.todos.map((todo, index) => {
+          return(
+            <TodoItem value={todo} index={index} deleteTodo={this.deleteTodo}></TodoItem>  
+          )
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
+

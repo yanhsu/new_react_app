@@ -1,7 +1,5 @@
 import React from 'react';
-import TodoItem from './TodoItem';
-import AddTodo from './AddTodo';
-
+import TodoList from './components/TodoList';
 
 class App extends React.Component {
   constructor() {
@@ -23,15 +21,34 @@ class App extends React.Component {
       todos: this.state.todos
     });
   }
+  toggleTodo = (index) => {
+    let todos = [...this.state.todos];
+    todos[index].isCompleted = !todos[index].isCompleted;
+    this.setState({
+        todos: todos
+    });
+  }
   render() {
   return (
       <div>
-         <AddTodo addTodo={this.addTodo}></AddTodo>
-         {this.state.todos.map((todo, index) => {
-          return(
-            <TodoItem value={todo} index={index} deleteTodo={this.deleteTodo}></TodoItem>  
-          )
-        })}
+         <nav className="navbar">
+           <input type="text"/>
+         </nav>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs">
+                <TodoList
+                  deleteTodo={this.deleteTodo}
+                  addTodo={this.addTodo}
+                  toggleTodo={this.toggleTodo}
+                  todos={this.state.todos}>
+                </TodoList>
+              </div>
+              <div className="col-xs">
+
+              </div>
+            </div>
+          </div>
       </div>
     );
   }

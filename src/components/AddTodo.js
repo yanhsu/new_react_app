@@ -20,9 +20,9 @@ class AddTodo extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input value={this.state.input} onChange={this.changeInput}></input>
-                <button className="btn btn-primary" onClick={this.AddTodo}>Add</button>
+            <div className="input-group">
+                <input 　className="form-control" value={this.state.input} onChange={this.changeInput}></input>
+                <button className="btn-sm btn-primary ml-2" onClick={this.AddTodo}>Add</button>
             </div>
         )
     }

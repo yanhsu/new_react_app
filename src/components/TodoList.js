@@ -11,17 +11,19 @@ class TodoList extends React.Component{
     return(
       <div>
         <AddTodo addTodo={this.props.addTodo}></AddTodo>
-        {this.props.todos.map((todo, index) => {
-          return(
-            <TodoItem
-              key={index}
-              obj={todo}
-              index={index}
-              deleteTodo={this.props.deleteTodo}
-              toggleTodo={this.props.toggleTodo}>
-            </TodoItem>
-          )
-        })}
+        <ul className="list-group list-group-flush border">
+          {this.props.todos.map((todo, index) => {
+            return(
+              <TodoItem
+                key={index}
+                obj={todo}
+                index={index}
+                deleteTodo={this.props.deleteTodo}
+                toggleTodo={this.props.toggleTodo}>
+              </TodoItem>
+            )
+          })}
+        </ul>
       </div>
     );
   }

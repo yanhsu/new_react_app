@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
   return (
       <div>
-         <nav className="navbar">
+         <nav className="navbar bg-dark mb-3">
            <input type="text"/>
          </nav>
           <div className="container">

@@ -1,21 +1,17 @@
 import React from 'react';
 
 function TodoItem(props) {
+    console.log(props.obj.id);
     return (
-        <li className="list-group-item border m-2 rounded">
-          <div className="form-check">
-            <input className="form-check-input" type="radio" name="radio" id="radio1" checked={props.obj.isCompleted}/>
-              <label className="form-check-label" htmlFor="radio1"> {props.obj.value}
-              </label>
+        <li className="list-group-item border-bottom m-2 rounded">
+          <div className="custom-control custom-radio">
+            <input className="custom-control-input" type="radio" name="customRadio" id="customRadio1" onChange={() => props.toggleTodo(props.obj.id)} checked={props.obj.isCompleted}/>
+            <label className="custom-control-label" htmlFor="customRadio1"> {props.obj.value}_{props.obj.id}
+            </label>
+            <button className='btn btn-danger rounded pull-right ml-2'  onClick={() => {props.deleteTodo(props.obj.id)}}>
+              <i className="fa fa-trash"></i>
+            </button>
           </div>
-            <span
-                onClick={() => {props.toggleTodo(props.index)}}
-                className={"d-inline p-2 "}
-                style={{textDecoration: props.obj.isCompleted? "line-through": null}}>
-                {props.obj.value}
-            </span>
-            <button className='btn btn-danger rounded pull-right'  onClick={() => {props.deleteTodo(props.index)}}><i
-              className="fa fa-trash"></i></button>
         </li>
     )
 }

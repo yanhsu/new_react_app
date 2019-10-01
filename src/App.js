@@ -13,7 +13,7 @@ class App extends React.Component {
   }
   deleteTodo = (key) => {
     const todos = this.state.todos.filter(function (value) {
-      return value.id != key;
+      return value.id !== key;
     });
     this.setState({todos});
   }
@@ -29,10 +29,8 @@ class App extends React.Component {
   }
   toggleTodo = (key) => {
     let todos = [...this.state.todos];
-    console.log(todos);
-    console.log(key);
     const index = _.findIndex(todos, function(value) {
-      return value.id == key;
+      return value.id === key;
     });
     todos[index].isCompleted = !todos[index].isCompleted;
     this.setState({
@@ -40,10 +38,10 @@ class App extends React.Component {
     });
   }
   filterTodo = (todo) => {
-    return todo.isCompleted == false;
+    return todo.isCompleted === false;
   }
   filterDone = (done) => {
-    return done.isCompleted == true;
+    return done.isCompleted === true;
   }
   render() {
   return (

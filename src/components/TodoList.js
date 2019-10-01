@@ -9,12 +9,11 @@ class TodoList extends React.Component{
     return(
       <div>
         <ul className="list-group list-group-flush">
-          {this.props.todos.map((todo, index) => {
+          {this.props.todos.map((todo) => {
             return(
               <TodoItem
                 key={todo.id}
                 obj={todo}
-                index={index}
                 {...this.props}>
               </TodoItem>
             )

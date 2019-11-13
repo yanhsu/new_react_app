@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
+import config from './config';
 import uuidv4 from 'uuid/v4';
 import _ from 'lodash';
 
@@ -49,7 +50,7 @@ class App extends React.Component {
          <nav className="navbar bg-dark mb-3">
            <input type="text"/>
          </nav>
-          <div className="container">
+         <div className="container">
             <AddTodo addTodo={this.addTodo}>
             </AddTodo>
             <div className="row">

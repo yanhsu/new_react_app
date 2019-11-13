@@ -3,7 +3,7 @@ import React from 'react';
 function TodoItem(props) {
     const { obj ,deleteTodo, toggleTodo } = props;
     return (
-        <li className="list-group-item border-bottom m-2 rounded">
+        <li className="list-group-item border-bottom border-top-0 m-2 rounded">
           <div className="custom-control custom-radio">
             <input className="custom-control-input" type="radio" name={obj.id} id={obj.id} onClick={() => {toggleTodo(obj.id)}} defaultChecked={obj.isCompleted} />
             <label className="custom-control-label" htmlFor={obj.id}> {obj.value}
